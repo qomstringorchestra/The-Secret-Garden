@@ -82,7 +82,7 @@
       gap: 42px;
       align-items: center;
       padding: 42px;
-      overflow: hidden;
+      overflow: visible;
       border: 1px solid var(--line);
       border-radius: 28px;
       background:
@@ -223,22 +223,36 @@
       color: var(--gold-light);
       font-weight: 500;
     }
+.poster-frame {
+  position: relative;
+  z-index: 2;
+  justify-self: center;
 
-    .poster-frame {
-      position: relative;
-      z-index: 2;
-      justify-self: center;
-      width: min(100%, 430px);
-      padding: 13px;
-      border: 1px solid rgba(215, 173, 97, .65);
-      border-radius: 5px;
-      background: #0d0e12;
-      box-shadow:
-        0 25px 45px rgba(0, 0, 0, .6),
-        0 0 0 8px rgba(215, 173, 97, .04);
-      transform: rotate(1.5deg);
-    }
+  width: min(100%, 430px);
+  padding: 12px;
 
+  border: 1px solid rgba(215, 173, 97, 0.65);
+  border-radius: 5px;
+  background: #0d0e12;
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.6),
+    0 0 0 8px rgba(215, 173, 97, 0.04);
+
+  transform: rotate(1.5deg);
+}
+
+.poster-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  /* تصویر کامل نمایش داده می‌شود و برش نمی‌خورد */
+  object-fit: contain;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
     .poster-frame::before,
     .poster-frame::after {
       position: absolute;
@@ -259,14 +273,8 @@
       left: -18px;
     }
 
-    .poster-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 510px;
-      object-fit: cover;
-      border: 1px solid rgba(255,255,255,.13);
-    }
+
+
 
     .program {
       padding: 34px 10px 0;
@@ -311,73 +319,85 @@
       font-size: 11px;
       text-align: center;
     }
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 28px 20px 35px;
+  }
 
-    @media (max-width: 850px) {
-      .page {
-        width: min(94%, 600px);
-        padding-top: 18px;
-      }
+  .details {
+    text-align: center;
+  }
 
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 45px;
-        padding: 28px 20px 35px;
-      }
+  .eyebrow {
+    justify-content: center;
+  }
 
-      .details {
-        text-align: center;
-      }
+  .subtitle {
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-      .eyebrow {
-        justify-content: center;
-      }
+  .composer-line {
+    justify-content: center;
+  }
 
-      .subtitle {
-        margin-right: auto;
-        margin-left: auto;
-      }
+  .event-info {
+    margin: auto;
+  }
 
-      .composer-line {
-        justify-content: center;
-      }
+  .poster-frame {
+    width: min(100%, 390px);
+    transform: none;
+  }
 
-      .event-info {
-        margin: auto;
-      }
+  .poster-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+  }
 
-      .poster-frame {
-        width: min(90%, 390px);
-        grid-row: 1;
-      }
+  .hero::after {
+    font-size: 110px;
+  }
+}
 
-      .poster-frame img {
-        min-height: auto;
-      }
+@media (max-width: 500px) {
+  .page {
+    width: 94%;
+  }
 
-      .hero::after {
-        font-size: 110px;
-      }
-    }
+  .hero {
+    padding: 25px 15px 32px;
+    border-radius: 20px;
+  }
 
-    @media (max-width: 500px) {
-      .event-info {
-        grid-template-columns: 1fr;
-      }
+  .event-info {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 
-      .info-box {
-        min-height: auto;
-        padding: 14px;
-      }
+  .info-box {
+    min-height: auto;
+    padding: 14px;
+  }
 
-      h1 {
-        font-size: 55px;
-      }
+  h1 {
+    font-size: 55px;
+  }
 
-      .poster-frame {
-        width: 100%;
-      }
-    }
-  </style>
+  .poster-frame {
+    width: 100%;
+  }
+
+  .program {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 </head>
 
 <body>
