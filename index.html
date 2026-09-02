@@ -1,10 +1,463 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>عکس</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>شب موسیقی کلاسیک | باغ پنهان</title>
+
+  <meta name="description"
+        content="شب موسیقی کلاسیک باغ پنهان، اجرای ارکستر ارشه‌ای قم">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #090b10;
+      --background-light: #11151d;
+      --gold: #d7ad61;
+      --gold-light: #f2d69a;
+      --text: #f7f1e4;
+      --muted: #b9b2a6;
+      --purple: #3b2545;
+      --line: rgba(215, 173, 97, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(91, 48, 88, 0.35), transparent 28%),
+        radial-gradient(circle at 88% 80%, rgba(56, 79, 63, 0.22), transparent 26%),
+        var(--background);
+      font-family: "Vazirmatn", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
+    .page {
+      width: min(1180px, 92%);
+      margin: auto;
+      padding: 32px 0 45px;
+    }
+
+    .top-line {
+      height: 1px;
+      margin-bottom: 28px;
+      background: linear-gradient(
+        to left,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    .hero {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+      padding: 42px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.06), transparent 48%),
+        linear-gradient(120deg, rgba(48, 28, 55, .75), rgba(8, 11, 16, .95) 65%);
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, .5),
+        inset 0 0 70px rgba(215, 173, 97, .04);
+    }
+
+    .hero::after {
+      content: "♫";
+      position: absolute;
+      left: 4%;
+      top: 4%;
+      color: rgba(215, 173, 97, .12);
+      font-family: serif;
+      font-size: 170px;
+      transform: rotate(-14deg);
+    }
+
+    .details {
+      position: relative;
+      z-index: 2;
+      text-align: right;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      color: var(--gold-light);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .orchestra {
+      margin-bottom: 13px;
+      color: var(--gold-light);
+      font-size: clamp(18px, 2vw, 25px);
+      font-weight: 500;
+    }
+
+    h1 {
+      color: var(--text);
+      font-family: "Amiri", serif;
+      font-size: clamp(45px, 7vw, 88px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 6px;
+      color: var(--gold);
+      font-size: .62em;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 510px;
+      margin: 28px 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2.2;
+    }
+
+    .composer-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: var(--gold-light);
+      font-size: 15px;
+    }
+
+    .composer-line .symbol {
+      color: var(--gold);
+      font-family: serif;
+      font-size: 25px;
+    }
+
+    .event-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 600px;
+    }
+
+    .info-box {
+      min-height: 110px;
+      padding: 17px 13px;
+      border: 1px solid rgba(215, 173, 97, .25);
+      border-radius: 14px;
+      background: rgba(255,255,255,.045);
+      text-align: center;
+    }
+
+    .info-icon {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .info-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .info-value {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .conductor {
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .conductor strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    .poster-frame {
+      position: relative;
+      z-index: 2;
+      justify-self: center;
+      width: min(100%, 430px);
+      padding: 13px;
+      border: 1px solid rgba(215, 173, 97, .65);
+      border-radius: 5px;
+      background: #0d0e12;
+      box-shadow:
+        0 25px 45px rgba(0, 0, 0, .6),
+        0 0 0 8px rgba(215, 173, 97, .04);
+      transform: rotate(1.5deg);
+    }
+
+    .poster-frame::before,
+    .poster-frame::after {
+      position: absolute;
+      color: var(--gold);
+      font-family: serif;
+      font-size: 28px;
+    }
+
+    .poster-frame::before {
+      content: "✦";
+      top: -22px;
+      right: -18px;
+    }
+
+    .poster-frame::after {
+      content: "✦";
+      bottom: -22px;
+      left: -18px;
+    }
+
+    .poster-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 510px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .program {
+      padding: 34px 10px 0;
+      text-align: center;
+    }
+
+    .program-title {
+      margin-bottom: 13px;
+      color: var(--gold);
+      font-family: "Amiri", serif;
+      font-size: 29px;
+    }
+
+    .program-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .periods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .period {
+      padding: 7px 17px;
+      border: 1px solid rgba(215, 173, 97, .27);
+      border-radius: 30px;
+      color: var(--gold-light);
+      font-size: 12px;
+      background: rgba(215, 173, 97, .06);
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #817d77;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .page {
+        width: min(94%, 600px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 28px 20px 35px;
+      }
+
+      .details {
+        text-align: center;
+      }
+
+      .eyebrow {
+        justify-content: center;
+      }
+
+      .subtitle {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .composer-line {
+        justify-content: center;
+      }
+
+      .event-info {
+        margin: auto;
+      }
+
+      .poster-frame {
+        width: min(90%, 390px);
+        grid-row: 1;
+      }
+
+      .poster-frame img {
+        min-height: auto;
+      }
+
+      .hero::after {
+        font-size: 110px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .event-info {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        min-height: auto;
+        padding: 14px;
+      }
+
+      h1 {
+        font-size: 55px;
+      }
+
+      .poster-frame {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <img src="photo.jpg" style="max-width:100%;">
+  <main class="page">
+    <div class="top-line"></div>
+
+    <section class="hero">
+      <div class="details">
+        <div class="eyebrow">اجرای ویژه موسیقی کلاسیک</div>
+
+        <div class="orchestra">
+          ارکستر ارشه‌ای قم
+        </div>
+
+        <h1>
+          شب موسیقی کلاسیک
+          <span>«باغ پنهان»</span>
+        </h1>
+
+        <p class="subtitle">
+          سفری موسیقایی در میان آواهای دلنشین دوره‌های باروک، کلاسیک،
+          رمانتیک و معاصر؛ با اجرای زنده‌ی ارکستر ارشه‌ای قم.
+        </p>
+
+        <div class="composer-line">
+          <span class="symbol">𝄞</span>
+          <span>قطعاتی از آهنگسازان چهار دوره‌ی موسیقی</span>
+        </div>
+
+        <div class="event-info">
+          <div class="info-box">
+            <span class="info-icon">◷</span>
+            <span class="info-label">زمان اجرا</span>
+            <span class="info-value">جمعه<br>۲۰ شهریور</span>
+          </div>
+
+          <div class="info-box">
+            <span class="info-icon">⌖</span>
+            <span class="info-label">مکان اجرا</span>
+            <span class="info-value">فرهنگ‌سرای<br>اندیشه</span>
+          </div>
+
+          <div class="info-box">
+            <span class="info-icon">♬</span>
+            <span class="info-label">ساعت</span>
+            <span class="info-value">۱۷:۰۰</span>
+          </div>
+        </div>
+
+        <div class="conductor">
+          به سرپرستی <strong>محمد جلالیان</strong>
+        </div>
+      </div>
+
+      <div class="poster-frame">
+        <img
+          src="photo.jpg"
+          alt="پوستر اجرای شب موسیقی کلاسیک باغ پنهان">
+      </div>
+    </section>
+
+    <section class="program">
+      <h2 class="program-title">چهار فصل، یک نغمه</h2>
+
+      <p class="program-text">
+        باروک&nbsp;&nbsp; • &nbsp;&nbsp;کلاسیک&nbsp;&nbsp; • &nbsp;&nbsp;
+        رمانتیک&nbsp;&nbsp; • &nbsp;&nbsp;معاصر
+      </p>
+
+      <div class="periods">
+        <span class="period">Baroque</span>
+        <span class="period">Classical</span>
+        <span class="period">Romantic</span>
+        <span class="period">Contemporary</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      ارکستر ارشه‌ای قم | شب موسیقی کلاسیک «باغ پنهان»
+    </footer>
+  </main>
 </body>
 </html>
