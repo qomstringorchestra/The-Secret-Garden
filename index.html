@@ -73,7 +73,47 @@
         transparent
       );
     }
+.poster-stack {
+  position: relative;
+  z-index: 2;
+  justify-self: center;
 
+  width: min(100%, 430px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.poster-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border: 1px solid rgba(215, 173, 97, 0.65);
+  border-radius: 5px;
+  background: #0d0e12;
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.55),
+    0 0 0 6px rgba(215, 173, 97, 0.04);
+
+  /* عکس کامل نمایش داده می‌شود و نوشته‌ها برش نمی‌خورند */
+  object-fit: contain;
+}
+
+@media (max-width: 850px) {
+  .poster-stack {
+    width: min(100%, 390px);
+  }
+}
+
+@media (max-width: 500px) {
+  .poster-stack {
+    width: 100%;
+    gap: 12px;
+  }
+}
     .hero {
       position: relative;
       min-height: 690px;
@@ -576,11 +616,11 @@
         </div>
       </div>
 
-<div class="poster-gallery">
-  <img src="1.png" alt="تصویر شماره ۱">
-  <img src="2.png" alt="تصویر شماره ۲">
-  <img src="3.png" alt="تصویر شماره ۳">
-  <img src="4.png" alt="تصویر شماره ۴">
+<div class="poster-stack">
+  <img src="1.png" alt="پوستر شماره ۱ شب موسیقی کلاسیک باغ پنهان">
+  <img src="2.png" alt="پوستر شماره ۲ شب موسیقی کلاسیک باغ پنهان">
+  <img src="3.png" alt="پوستر شماره ۳ شب موسیقی کلاسیک باغ پنهان">
+  <img src="4.png" alt="پوستر شماره ۴ شب موسیقی کلاسیک باغ پنهان">
 </div>
     </section>
 
